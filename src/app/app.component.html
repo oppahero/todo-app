@@ -1,10 +1,14 @@
 <main class="main">
   <div class="content">
     <h1>📋 My Task List</h1>
-    <p>Here you can keep track of your to-do tasks and which ones you have already completed.</p>
+    <p>
+      Here you can keep track of your to-do tasks and which ones you have
+      already completed.
+    </p>
     <div class="divider" role="separator" aria-label="Divider"></div>
 
-    <app-input-task/>
-
+    <app-input-task (addTaskEvent)="addTask($event)" />
+    <app-pending-tasks [tasks]="tasks" />
+    <app-completed-tasks [tasks]="tasks" />
   </div>
 </main>

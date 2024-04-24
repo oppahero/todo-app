@@ -1,7 +1,13 @@
-<form>
-    <div class="new-task-form">
-        <label for="new-task">➕ New task</label>
-        <input id="new-task" type="text" placeholder="Try typing 'Bath my dog'" autocomplete="off">
-        <button type="submit"></button>
-    </div>
-</form>
+<div class="new-task-form">
+  <label for="new-task">➕ New task</label>
+  <input
+    id="new-task"
+    type="text"
+    placeholder="Try typing 'Bath my dog'"
+    autocomplete="off"
+    class="input-task"
+    [(ngModel)]="task"
+    (keydown.enter)="addTask()"
+  />
+  <input type="submit" value="➜" (click)="addTask()" />
+</div>
