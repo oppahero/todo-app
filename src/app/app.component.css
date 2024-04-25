@@ -16,10 +16,6 @@
 }
 
 .divider {
-  /* width: 1px;
-  background: var(--red-to-pink-to-purple-vertical-gradient);
-  margin-inline: 0.5rem; */
-
   height: 1px;
   width: 100%;
   background: var(--red-to-pink-to-purple-horizontal-gradient);
@@ -41,3 +37,7 @@
 .social-links a:hover svg path {
   fill: var(--gray-900);
 } */
+
+.section-task{
+  width: 100%;
+}

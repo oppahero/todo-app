@@ -28,36 +28,30 @@
     var(--vivid-pink) 50%,
     var(--electric-violet) 100%
   );
-
-  --pill-accent: var(--bright-blue);
-
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #222;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #f5ebeb;
-  font-weight: 700;
-  line-height: 100%;
-  letter-spacing: -0.125rem;
-  margin: 0;
   font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 }
 
+h1 {
+  margin: 0;
+  color: #f5ebeb;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+}
+
 h2 {
   color: #f5ebeb;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 p {
@@ -68,14 +62,32 @@ p {
 main {
   width: 100%;
   min-height: 100%;
+  padding: 1rem;
   display: flex;
   justify-content: center;
-  padding: 1rem;
-  box-sizing: inherit;
+  /* box-sizing: inherit; */
   position: relative;
 }
 
 ul {
-  list-style: none;
   padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+li{
+  padding: 15px;
+  border-radius: 10px;    
+  max-width: 50rem;
+  color: #e7dfdf;
+} 
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked  {
+  accent-color: var(--electric-violet);
 }

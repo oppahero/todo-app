@@ -7,8 +7,10 @@
     </p>
     <div class="divider" role="separator" aria-label="Divider"></div>
 
-    <app-input-task (addTaskEvent)="addTask($event)" />
-    <app-pending-tasks [tasks]="tasks" />
-    <app-completed-tasks [tasks]="tasks" />
+    <div class="section-task">
+      <app-input-task (addTaskEvent)="addTask($event)" />
+      <app-pending-tasks [tasks]="tasks" (changeEvent)="updateTasks()" />
+      <app-completed-tasks [tasks]="tasks" (changeEvent)="updateTasks()" />
+    </div>
   </div>
 </main>

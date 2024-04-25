@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../models/task';
 import { ListTaskComponent } from '../list-task/list-task.component';
 
@@ -9,7 +9,10 @@ import { ListTaskComponent } from '../list-task/list-task.component';
   template: `
     @if (pendingTasks.length > 0) {
     <h2>To do</h2>
-    <app-list-task [tasks]="pendingTasks" />
+    <app-list-task 
+      [tasks]="pendingTasks"
+      (noCompletedEvent)="emitChange()"
+    />
     }@else {
     <div>
       <h2>No pending tasks</h2>
@@ -19,9 +22,16 @@ import { ListTaskComponent } from '../list-task/list-task.component';
   styleUrl: './pending-tasks.component.css',
 })
 export class PendingTasksComponent {
-  pendingTasks: Task[] = [];
+
+  pendingTasks: Task[] = []
+
+  @Output() changeEvent = new EventEmitter()
 
   @Input() set tasks(tasks: Task[]) {
-    this.pendingTasks = tasks.filter((task) => !task.completed);
+    this.pendingTasks = tasks.filter((task) => !task.completed)
+  }
+
+  emitChange() {
+    this.changeEvent.emit()
   }
 }

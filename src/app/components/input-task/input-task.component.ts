@@ -12,16 +12,18 @@ import { Task } from '../../models/task'
 export class InputTaskComponent {
 
   @Output() addTaskEvent = new EventEmitter<Task>()
-  task: string = ''
+  task!: string | undefined;
 
   addTask() {
-    let task : Task = {
-      id: Date.now().toString(),
-      description: this.task,
-      completed: false
+    if (this.task){
+      let task : Task = {
+        id: Date.now().toString(),
+        description: this.task.trim(),
+        completed: false
+      }
+      this.task = undefined
+      this.addTaskEvent.emit(task)
     }
-    this.task = ''
-    this.addTaskEvent.emit(task)
   }
 
 }
