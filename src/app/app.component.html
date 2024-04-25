@@ -9,8 +9,16 @@
 
     <div class="section-task">
       <app-input-task (addTaskEvent)="addTask($event)" />
-      <app-pending-tasks [tasks]="tasks" (changeEvent)="updateTasks()" />
-      <app-completed-tasks [tasks]="tasks" (changeEvent)="updateTasks()" />
+      <app-pending-tasks
+        [tasks]="tasks"
+        (changeEvent)="updateTasks()"
+        (deleteTaskEvent)="deleteTask($event)"
+      />
+      <app-completed-tasks
+        [tasks]="tasks"
+        (changeEvent)="updateTasks()"
+        (deleteTaskEvent)="deleteTask($event)"
+      />
     </div>
   </div>
 </main>

@@ -12,6 +12,7 @@ import { Task } from '../../models/task';
     <app-list-task
       [tasks]="completedTasks"
       (noCompletedEvent)="emitChange()"
+      (deleteTaskEvent)="deleteTask($event)"
     />
     }
   `,
@@ -23,6 +24,7 @@ export class CompletedTasksComponent {
   completedTasks: Task[] = []
 
   @Output() changeEvent = new EventEmitter()
+  @Output() deleteTaskEvent = new EventEmitter<string>()
 
   @Input() set tasks(tasks: Task[]) {    
     this.completedTasks = tasks.filter((task) => task.completed)    
@@ -30,5 +32,9 @@ export class CompletedTasksComponent {
 
   emitChange() {    
     this.changeEvent.emit()
+  }
+
+  deleteTask(id: string){
+    this.deleteTaskEvent.emit(id)
   }
 }

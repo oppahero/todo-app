@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
         >
           {{ task.description }}
         </p>
-        <input class="remove-bottom" type="button" value="❌" />
+        <input class="remove-bottom" type="button" value="✖" (click)="delete(task.id)"/>
       </li>
       }
     </ul>
@@ -33,10 +33,15 @@ import { CommonModule } from '@angular/common';
 })
 export class ListTaskComponent {
   @Output() noCompletedEvent = new EventEmitter()
+  @Output() deleteTaskEvent = new EventEmitter<string>()
 
   @Input() tasks: Task[] = []
 
   onCheckboxChange() {
     this.noCompletedEvent.emit()
+  }
+
+  delete(id: string){
+    this.deleteTaskEvent.emit(id)
   }
 }

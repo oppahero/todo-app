@@ -12,6 +12,7 @@ import { ListTaskComponent } from '../list-task/list-task.component';
     <app-list-task 
       [tasks]="pendingTasks"
       (noCompletedEvent)="emitChange()"
+      (deleteTaskEvent)="deleteTask($event)"
     />
     }@else {
     <div>
@@ -26,6 +27,7 @@ export class PendingTasksComponent {
   pendingTasks: Task[] = []
 
   @Output() changeEvent = new EventEmitter()
+  @Output() deleteTaskEvent = new EventEmitter<string>()
 
   @Input() set tasks(tasks: Task[]) {
     this.pendingTasks = tasks.filter((task) => !task.completed)
@@ -33,5 +35,9 @@ export class PendingTasksComponent {
 
   emitChange() {
     this.changeEvent.emit()
+  }
+  
+  deleteTask(id: string){
+    this.deleteTaskEvent.emit(id)
   }
 }

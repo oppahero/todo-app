@@ -13,6 +13,7 @@ import { Task } from './models/task';
 })
 export class AppComponent {
 
+
   tasks: Task[] = [
     {
       id: '1',
@@ -38,4 +39,9 @@ export class AppComponent {
   updateTasks(){
     this.tasks = [...this.tasks]
   }
+
+  deleteTask(id: string) {
+    this.tasks = this.tasks.filter(task => task.id !== id)
+  }
+
 }
