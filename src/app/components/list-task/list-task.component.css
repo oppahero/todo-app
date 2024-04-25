@@ -15,13 +15,17 @@
 .li-task .remove-bottom{
     border: none;
     background-color: transparent;
-    /* opacity: 0; */
+    opacity: 0;
     cursor: pointer;
     flex-shrink: 0;
     transition: all .2s;
 }
 
-/* li:hover .remove-bottom{
-    display: 1 ;
-} */
+.li-task:hover .remove-bottom{
+    opacity: 1 ;
+}
+
+.remove-bottom:hover{
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); 
+}
 

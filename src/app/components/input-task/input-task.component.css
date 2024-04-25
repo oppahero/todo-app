@@ -22,13 +22,6 @@
   cursor: text;
 }
 
-input {
-  border: none;
-  background-color: #333;
-  font-family: inherit;
-  font-size: inherit;
-}
-
 .input-task {
   color: #333;
   font-size: 16px;
@@ -46,4 +39,18 @@ input {
 
 .input-task:focus::placeholder {
   opacity: 1;
+}
+
+@media (max-width: 420px) {
+  .new-task-form label {
+    display: none;
+  }
+
+  .input-task {
+    color: #cab2b2;
+  }
+
+  .input-task::placeholder {
+    opacity: 1;
+  }  
 }
