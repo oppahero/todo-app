@@ -55,6 +55,7 @@ export class CompletedTasksComponent {
       origin: { y: 0.6 },
     });
   
+    // Clear confetti after a certain duration
     setTimeout(() => confetti.reset(), duration);
   }
 }
