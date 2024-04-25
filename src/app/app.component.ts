@@ -9,28 +9,11 @@ import { Task } from './models/task';
   standalone: true,
   imports: [InputTaskComponent, PendingTasksComponent, CompletedTasksComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',  
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
 
-
-  tasks: Task[] = [
-    {
-      id: '1',
-      description: 'Buy milk',
-      completed: false
-    },
-    {
-      id: '2',
-      description: 'Read the Angular documentation',
-      completed: true
-    },
-    {
-      id: '3',
-      description: 'Read a book',
-       completed: true
-    }
-  ]
+  tasks: Task[] = []
 
   addTask(task: Task) {
     this.tasks = [ ...this.tasks, task]
