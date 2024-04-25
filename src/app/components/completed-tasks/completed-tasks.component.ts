@@ -23,22 +23,22 @@ import confetti from 'canvas-confetti'
 
 })
 export class CompletedTasksComponent {
-  
+
   completedTasks: Task[] = []
   tasksList: number = 0
 
   @Output() changeEvent = new EventEmitter()
   @Output() deleteTaskEvent = new EventEmitter<string>()
 
-  @Input() set tasks(tasks: Task[]) {    
+  @Input() set tasks(tasks: Task[]) {
     this.tasksList = tasks?.length
-    this.completedTasks = tasks.filter((task) => task.completed) 
-    
-    if(this.tasksList === this.completedTasks.length)
+    this.completedTasks = tasks.filter((task) => task.completed)
+
+    if( this.tasksList > 0 && this.tasksList === this.completedTasks.length)
       this.celebrate()
   }
 
-  emitChange() {    
+  emitChange() {
     this.changeEvent.emit()
   }
 
@@ -47,14 +47,14 @@ export class CompletedTasksComponent {
   }
 
   celebrate() {
-    const duration = 3000; 
-  
+    const duration = 3000;
+
     confetti({
       particleCount: 100,
       spread: 160,
       origin: { y: 0.6 },
     });
-  
+
     // Clear confetti after a certain duration
     setTimeout(() => confetti.reset(), duration);
   }
