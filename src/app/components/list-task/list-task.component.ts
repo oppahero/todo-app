@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
           type="checkbox"
           [(ngModel)]="task.completed"
           (ngModelChange)="onCheckboxChange()"
+          (click)="onCheckboxChange()"
         />
         <p>{{ task.description }}</p>
         <input class="remove-bottom" type="button" value="❌" />
